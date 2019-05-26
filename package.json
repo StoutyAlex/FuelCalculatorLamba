@@ -1,0 +1,19 @@
+{
+  "name": "fuelcalculator",
+  "version": "1.0.0",
+  "description": "Calculate your fuel costs for your journey",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "bst": "bst proxy lambda index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/maps": "^0.5.5",
+    "aws-sdk": "^2.463.0",
+    "axios": "^0.18.0",
+    "google_directions": "^0.6.0",
+    "lodash": "^4.17.11"
+  }
+}
