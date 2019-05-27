@@ -28,7 +28,7 @@ module.exports = {
       combined,
       urban,
       motorway,
-      FuelTankCapacity,
+      fuelTankCapacity,
       make,
       model,
       fuelType,

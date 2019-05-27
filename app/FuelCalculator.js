@@ -27,7 +27,18 @@ const _getJourneyCost = (mpg, distance, fuelPrice) => {
   const gallons = distance/mpg;
   const pricePerGallon = fuelPrice * 4.54 / 100;
   return gallons * pricePerGallon;
-}
+};
+
+const _getFuelUsed = (mpg, distance, capacity) => {
+  const gallons = distance/mpg
+  const litresUsed = (gallons * 4.54).toFixed(1);
+  const tanksUsed = (litresUsed / capacity).toFixed(2);
+
+  return {
+    litresUsed,
+    tanksUsed,
+  }
+};
 
 module.exports = async (origin, destination, car) => {
   const response = await _getDirections(origin, destination);
@@ -52,9 +63,16 @@ module.exports = async (origin, destination, car) => {
   
   const journeyCost = _getJourneyCost(mpg, distance, fuelPrice).toFixed(2);
 
+  const fuelTankCapacity = car.fuelTankCapacity;
+
+  const fuelData = _getFuelUsed(mpg, distance, fuelTankCapacity);
+
   return {
     duration,
     distance,
+    fuelTankCapacity,
+    tanksUsed: fuelData.tanksUsed,
+    litresUsed: fuelData.litresUsed,
     start: leg.start_address,
     end: leg.end_address,
     averageSpeed,
