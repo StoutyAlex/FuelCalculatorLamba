@@ -18,7 +18,7 @@ module.exports = {
     const make = carRegistration.Make;
     const model = carRegistration.Model;
   
-    const FuelTankCapacity = carData.Dimensions.FuelTankCapacity;
+    const fuelTankCapacity = carData.Dimensions.FuelTankCapacity;
     const combined = carData.Consumption.Combined.Mpg;
     const urban = carData.Consumption.UrbanCold.Mpg;
     const motorway = carData.Consumption.ExtraUrban.Mpg;
